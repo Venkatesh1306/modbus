@@ -19,9 +19,9 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>src/input_func.c</itemPath>
       <itemPath>src/mb03.c</itemPath>
       <itemPath>src/test.c</itemPath>
+      <itemPath>src/input_func.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>

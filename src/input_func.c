@@ -1,6 +1,12 @@
+/*
+ * File:   input_func.c
+ * Author: Green2
+ *
+ * Created on 9 April, 2024, 3:38 PM
+ */
+
+
 #include "head1.h"
-
-
 
 void in_func(Modbus *parse, const BYTE *ModbusRXbuf) {
     parse->transaction_identifier.v[1]   = ModbusRXbuf[0];
@@ -15,5 +21,4 @@ void in_func(Modbus *parse, const BYTE *ModbusRXbuf) {
     parse->start_address.v[0]            = ModbusRXbuf[9];
     parse->address_length.v[1]           = ModbusRXbuf[10];
     parse->address_length.v[0]           = ModbusRXbuf[11]; 
-    Test_Res=9;
 }
