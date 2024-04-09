@@ -6,11 +6,13 @@
  */
 
 #include "head1.h"
-//#define test_ing;
 
-void in_func(Modbus *parse, const BYTE *ModbusRXbuf); // Function declaration
-void Test_ing(const BYTE ModbusTXbuf[], const BYTE Test_TX[]);
 
+//void in_func(Modbus *parse, const BYTE *ModbusRXbuf); // Function declaration
+//void Test_ing(const BYTE ModbusTXbuf[], const BYTE Test_TX[]);
+//void inn_func(void);
+
+void inn_func(void){
 int main(){
     Modbus parse;
     in_func(&parse, ModbusRXbuf); // Function call with correct arguments
@@ -18,6 +20,8 @@ int main(){
     ModbusTXbuf[1] = parse.transaction_identifier.v[0];
     ModbusTXbuf[2] = parse.protocol_identifier.v[1];
     ModbusTXbuf[3] = parse.protocol_identifier.v[0];
+    
+    
    //FC 03
   if(parse.function_code == READ_HOLDING_REGISTERS){ 
     // Assign values to output array based on parsed data
@@ -34,15 +38,11 @@ int main(){
     }
  } 
     Test_ing(ModbusTXbuf,Test_TX);
-#ifdef test_ing
-    printf("ModbusTXbuf contents:\n");
-    for (int i = 0; i < 0x07 + ModbusTXbuf[8] ; i++) {
-        printf("%02X ", ModbusTXbuf[i]); // Print each byte as a two-digit hexadecimal number
-    }
-    printf("\n");
-#endif
-     while(1)
+   
+         
+    while(1)
     {
     ModbusTXbuf[26]= 0;     
     }
+}
 }

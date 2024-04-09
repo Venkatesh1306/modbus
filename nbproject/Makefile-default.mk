@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=src/input_func.c src/mb03.c src/test.c
+SOURCEFILES_QUOTED_IF_SPACED=src/input_func.c src/mb03.c src/test.c src/main.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/src/input_func.o ${OBJECTDIR}/src/mb03.o ${OBJECTDIR}/src/test.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/src/input_func.o.d ${OBJECTDIR}/src/mb03.o.d ${OBJECTDIR}/src/test.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/src/input_func.o ${OBJECTDIR}/src/mb03.o ${OBJECTDIR}/src/test.o ${OBJECTDIR}/src/main.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/src/input_func.o.d ${OBJECTDIR}/src/mb03.o.d ${OBJECTDIR}/src/test.o.d ${OBJECTDIR}/src/main.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/src/input_func.o ${OBJECTDIR}/src/mb03.o ${OBJECTDIR}/src/test.o
+OBJECTFILES=${OBJECTDIR}/src/input_func.o ${OBJECTDIR}/src/mb03.o ${OBJECTDIR}/src/test.o ${OBJECTDIR}/src/main.o
 
 # Source Files
-SOURCEFILES=src/input_func.c src/mb03.c src/test.c
+SOURCEFILES=src/input_func.c src/mb03.c src/test.c src/main.c
 
 
 
@@ -107,6 +107,12 @@ ${OBJECTDIR}/src/test.o: src/test.c  .generated_files/flags/default/b5400993feda
 	@${RM} ${OBJECTDIR}/src/test.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  src/test.c  -o ${OBJECTDIR}/src/test.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/src/test.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mlarge-code -mlarge-data -mlarge-scalar -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
+${OBJECTDIR}/src/main.o: src/main.c  .generated_files/flags/default/69cf8400d2ce6dafe316655d23c1e3aac34ff4f .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/main.o.d 
+	@${RM} ${OBJECTDIR}/src/main.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/main.c  -o ${OBJECTDIR}/src/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/src/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mlarge-code -mlarge-data -mlarge-scalar -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
 else
 ${OBJECTDIR}/src/input_func.o: src/input_func.c  .generated_files/flags/default/d9f28ca3aed30768d0c41758bf24a9665f05467d .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}/src" 
@@ -125,6 +131,12 @@ ${OBJECTDIR}/src/test.o: src/test.c  .generated_files/flags/default/52e13cd98080
 	@${RM} ${OBJECTDIR}/src/test.o.d 
 	@${RM} ${OBJECTDIR}/src/test.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  src/test.c  -o ${OBJECTDIR}/src/test.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/src/test.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mlarge-code -mlarge-data -mlarge-scalar -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/src/main.o: src/main.c  .generated_files/flags/default/5fd3d0648287066164cc43610e73438cb0a24d69 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/main.o.d 
+	@${RM} ${OBJECTDIR}/src/main.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/main.c  -o ${OBJECTDIR}/src/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/src/main.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mlarge-code -mlarge-data -mlarge-scalar -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
 endif
 

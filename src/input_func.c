@@ -1,6 +1,6 @@
 #include "head1.h"
 
-void in_func(Modbus *parse, const BYTE *ModbusRXbuf);
+//void in_func(Modbus *parse, const BYTE *ModbusRXbuf);
 
 void in_func(Modbus *parse, const BYTE *ModbusRXbuf) {
     parse->transaction_identifier.v[1]   = ModbusRXbuf[0];

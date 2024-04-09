@@ -22,6 +22,7 @@
       <itemPath>src/input_func.c</itemPath>
       <itemPath>src/mb03.c</itemPath>
       <itemPath>src/test.c</itemPath>
+      <itemPath>src/main.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -203,6 +204,9 @@
       <Simulator>
         <property key="W0003_CORE_SW_RESET" value="report"/>
       </Simulator>
+      <Tool>
+        <property key="W0003_CORE_SW_RESET" value="report"/>
+      </Tool>
     </conf>
   </confs>
 </configurationDescriptor>
