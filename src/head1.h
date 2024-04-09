@@ -36,5 +36,4 @@ extern int Test_Res;
 
 void in_func(Modbus *parse, const BYTE *ModbusRXbuf); // Function declaration
 void Test_ing(const BYTE ModbusTXbuf[], const BYTE Test_TX[]);
-void inn_func(void);
 
