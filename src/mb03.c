@@ -8,11 +8,6 @@
 #include "head1.h"
 
 
-//void in_func(Modbus *parse, const BYTE *ModbusRXbuf); // Function declaration
-//void Test_ing(const BYTE ModbusTXbuf[], const BYTE Test_TX[]);
-//void inn_func(void);
-
-void inn_func(void){
 int main(){
     Modbus parse;
     in_func(&parse, ModbusRXbuf); // Function call with correct arguments
@@ -44,5 +39,4 @@ int main(){
     {
     ModbusTXbuf[26]= 0;     
     }
-}
 }
