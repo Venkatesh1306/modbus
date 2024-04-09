@@ -11,13 +11,13 @@
 int main(){
     Modbus parse;
     in_func(&parse, ModbusRXbuf); // Function call with correct arguments
+//Common for all the function code.
     ModbusTXbuf[0] = parse.transaction_identifier.v[1];
     ModbusTXbuf[1] = parse.transaction_identifier.v[0];
     ModbusTXbuf[2] = parse.protocol_identifier.v[1];
     ModbusTXbuf[3] = parse.protocol_identifier.v[0];
     
-    
-   //FC 03
+//Function Code 03.
   if(parse.function_code == READ_HOLDING_REGISTERS){ 
     // Assign values to output array based on parsed data
     ModbusTXbuf[6] = parse.unit_identifier;
@@ -32,6 +32,14 @@ int main(){
         ModbusTXbuf[10 + increment * 2] = DataRegister[parse.start_address.Val + increment]%0x100; // Low byte
     }
  } 
+#ifdef test_ing
+  else{
+    printf("invalid function code ");
+  }
+  printf("\n");
+#endif          
+    
+    
     Test_ing(ModbusTXbuf,Test_TX);
    
          

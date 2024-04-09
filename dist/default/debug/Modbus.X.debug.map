@@ -126,9 +126,9 @@ section                    address   length (PC units)   length (bytes) (dec)
 .text                        0x200               0xa22           0xf33  (3891)
 .const                       0xc22                0x22            0x33  (51)
 .dinit                       0xc44               0x108           0x18c  (396)
-.text                        0xd4c               0x196           0x261  (609)
+.text                        0xd4c               0x192           0x25b  (603)
 
-                 Total "program" memory used (bytes):         0x1353  (4947) 9%
+                 Total "program" memory used (bytes):         0x134d  (4941) 9%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x2000]
@@ -218,11 +218,11 @@ External Symbols in Program Memory (by address):
                   0x000c16                  ___mulp32peds3
                   0x000d4c                  _main
                   0x000dfa                  _in_func
-                  0x000e7e                  _Test_ing
+                  0x000e7a                  _Test_ing
 
 External Symbols in Program Memory (by name):
 
-                  0x000e7e                  _Test_ing
+                  0x000e7a                  _Test_ing
                   0x0002d4                  __DefaultInterrupt
                   0x000bae                  ___extendsfdf2
                   0x000390                  ___fmt_s
@@ -451,33 +451,33 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000        0xcf9
+.debug_info       0x000000        0xcdf
  *(.debug_info)
  .debug_info      0x000000        0x4ab build/default/debug/src/mb03.o
  .debug_info      0x0004ab        0x26d build/default/debug/src/test.o
- .debug_info      0x000718        0x438 build/default/debug/src/input_func.o
- .debug_info      0x000b50         0x90 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(extendsfdf.XX_o)
- .debug_info      0x000be0         0x8d c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(funpack.XX_o)
- .debug_info      0x000c6d         0x8c c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(mulsi3.XX_o)
+ .debug_info      0x000718        0x41e build/default/debug/src/input_func.o
+ .debug_info      0x000b36         0x90 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(extendsfdf.XX_o)
+ .debug_info      0x000bc6         0x8d c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(funpack.XX_o)
+ .debug_info      0x000c53         0x8c c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(mulsi3.XX_o)
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x2e5
+.debug_abbrev     0x000000        0x2d4
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0xfa build/default/debug/src/mb03.o
  .debug_abbrev    0x0000fa         0xb6 build/default/debug/src/test.o
- .debug_abbrev    0x0001b0         0xf9 build/default/debug/src/input_func.o
- .debug_abbrev    0x0002a9         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(extendsfdf.XX_o)
- .debug_abbrev    0x0002bd         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(funpack.XX_o)
- .debug_abbrev    0x0002d1         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(mulsi3.XX_o)
+ .debug_abbrev    0x0001b0         0xe8 build/default/debug/src/input_func.o
+ .debug_abbrev    0x000298         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(extendsfdf.XX_o)
+ .debug_abbrev    0x0002ac         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(funpack.XX_o)
+ .debug_abbrev    0x0002c0         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(mulsi3.XX_o)
 
-.debug_line       0x000000        0x1f6
+.debug_line       0x000000        0x1f5
  *(.debug_line)
  .debug_line      0x000000         0x60 build/default/debug/src/mb03.o
  .debug_line      0x000060         0x59 build/default/debug/src/test.o
- .debug_line      0x0000b9         0x60 build/default/debug/src/input_func.o
- .debug_line      0x000119         0x59 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(extendsfdf.XX_o)
- .debug_line      0x000172         0x4a c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(funpack.XX_o)
- .debug_line      0x0001bc         0x3a c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(mulsi3.XX_o)
+ .debug_line      0x0000b9         0x5f build/default/debug/src/input_func.o
+ .debug_line      0x000118         0x59 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(extendsfdf.XX_o)
+ .debug_line      0x000171         0x4a c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(funpack.XX_o)
+ .debug_line      0x0001bb         0x3a c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(mulsi3.XX_o)
 
 .debug_frame      0x000000         0x92
  *(.debug_frame)
@@ -485,11 +485,10 @@ __CONFIG1
  .debug_frame     0x00002e         0x36 build/default/debug/src/test.o
  .debug_frame     0x000064         0x2e build/default/debug/src/input_func.o
 
-.debug_str        0x000000         0x57
+.debug_str        0x000000         0x4e
  *(.debug_str)
  .debug_str       0x000000         0x2f build/default/debug/src/mb03.o
  .debug_str       0x00002f         0x1f build/default/debug/src/test.o
- .debug_str       0x00004e          0x9 build/default/debug/src/input_func.o
 
 .debug_loc
  *(.debug_loc)
@@ -1250,10 +1249,10 @@ __xc_reference_data
 .dinit            0x000c44        0x108
  .dinit           0x000c44        0x108 data_init
 
-.text             0x000d4c        0x196
+.text             0x000d4c        0x192
  .text            0x000d4c         0xae build/default/debug/src/mb03.o
                   0x000d4c                  _main
- .text            0x000dfa         0x84 build/default/debug/src/input_func.o
+ .text            0x000dfa         0x80 build/default/debug/src/input_func.o
                   0x000dfa                  _in_func
- .text            0x000e7e         0x64 build/default/debug/src/test.o
-                  0x000e7e                  _Test_ing
+ .text            0x000e7a         0x64 build/default/debug/src/test.o
+                  0x000e7a                  _Test_ing
