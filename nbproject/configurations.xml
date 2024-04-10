@@ -19,9 +19,16 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>src/mb03.c</itemPath>
       <itemPath>src/test.c</itemPath>
       <itemPath>src/input_func.c</itemPath>
+      <itemPath>src/Readholing_reg.c</itemPath>
+      <itemPath>src/main.c</itemPath>
+      <itemPath>src/error.c</itemPath>
+      <itemPath>src/PresetSingle_reg.c</itemPath>
+      <itemPath>src/ReadInput_reg.c</itemPath>
+      <itemPath>src/ForceSingle_coil.c</itemPath>
+      <itemPath>src/ForceMultiple_coils.c</itemPath>
+      <itemPath>src/PresetMultiple_reg.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
