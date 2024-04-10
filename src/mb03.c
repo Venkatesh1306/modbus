@@ -10,7 +10,9 @@
 
 int main(){
     Modbus parse;
+    ErrorCode error;
     in_func(&parse, ModbusRXbuf); // Function call with correct arguments
+
 //Common for all the function code.
     ModbusTXbuf[0] = parse.transaction_identifier.v[1];
     ModbusTXbuf[1] = parse.transaction_identifier.v[0];
@@ -19,6 +21,17 @@ int main(){
     
 //Function Code 03.
   if(parse.function_code == READ_HOLDING_REGISTERS){ 
+
+   if(parse.start_address.Val>26){
+    error = 01;
+    ModbusTXbuf[6] = parse.unit_identifier;
+    ModbusTXbuf[7] = parse.function_code;
+    ModbusTXbuf[4] = 0x00;
+    ModbusTXbuf[5] = 0x05;
+    ModbusTXbuf[8] = error;
+}
+    else{
+
     // Assign values to output array based on parsed data
     ModbusTXbuf[6] = parse.unit_identifier;
     ModbusTXbuf[7] = parse.function_code;
@@ -31,15 +44,23 @@ int main(){
         ModbusTXbuf[9 + increment * 2] = DataRegister[parse.start_address.Val + increment]/0x100;   // High byte
         ModbusTXbuf[10 + increment * 2] = DataRegister[parse.start_address.Val + increment]%0x100; // Low byte
     }
+}
  } 
+
 #ifdef test_ing
   else{
     printf("invalid function code ");
   }
   printf("\n");
+
+printf("ModbusTXbuf contents:\n");
+    for (int i = 0; i < 9; i++) {
+        printf("%02X ", ModbusTXbuf[i]); // Print each byte in hexadecimal format
+    }
+ printf("\n");
 #endif          
     
-    
+//function call for test    
     Test_ing(ModbusTXbuf,Test_TX);
    
          

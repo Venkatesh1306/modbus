@@ -13,7 +13,8 @@
 #define WRITE_SINGLE_REGISTER 0x06 
 #define READ_INPUT_REGISTERS 0x04
 
-
+//error
+#define illegal_register_address 01
 
 typedef struct {
     WORD_VAL transaction_identifier;
@@ -25,13 +26,27 @@ typedef struct {
     WORD_VAL address_length;
 } Modbus;
 
+typedef enum
+{
+    NOERR,                  /*!< no error. */
+    ENOREG,                  /*!< illegal register address. */
+    EINVAL,                  /*!< illegal argument. */
+    EPORTERR,                /*!< porting layer error. */
+    ENORES,                  /*!< insufficient resources. */
+    EIO,                     /*!< I/O error. */
+    EILLSTATE,               /*!< protocol stack in illegal state. */
+    ETIMEDOUT                /*!< timeout error occurred. */
+} ErrorCode;
+
+
+
 extern BYTE ModbusRXbuf[INPUT_SIZE];
 extern WORD DataRegister[100];
 extern BYTE ModbusTXbuf[26];
 extern BYTE Test_TX[26];
 extern int increment;
 extern int Test_Res;
-
+extern ErrorCode error;
 
 
 void in_func(Modbus *parse, const BYTE *ModbusRXbuf); // Function declaration
