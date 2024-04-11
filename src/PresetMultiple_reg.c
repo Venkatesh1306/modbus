@@ -16,8 +16,8 @@ void PresetMultiple_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,Erro
          error_1(error);
     }
     else{
-    ModbusTXbuf[4] = parse->length.v[1];
-    ModbusTXbuf[5] = parse->length.v[0];
+    ModbusTXbuf[4] = 0x00;
+    ModbusTXbuf[5] = 0x06;
     ModbusTXbuf[6] = parse->unit_identifier;
     ModbusTXbuf[7] = parse->function_code;
     ModbusTXbuf[8] = parse->start_address.v[1];   
@@ -25,10 +25,9 @@ void PresetMultiple_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,Erro
     ModbusTXbuf[10] = parse->address_length.v[1];  
     ModbusTXbuf[11] = parse->address_length.v[0];
     
-                for(increment = 0;increment < (parse->length.Val - 6); increment++)
-        {
-           ModbusTXbuf[12+increment] =  parse->force_data[increment].Val;
-        }
+//                for(increment = 0;increment < (parse->length.Val - 6); increment++)
+//        {
+//           ModbusTXbuf[12+increment] =  parse->force_data[increment].Val;
+//        }
     }
 }
-

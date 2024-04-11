@@ -5,7 +5,7 @@
 #include "head.h"
 
 #define INPUT_SIZE 20
-//#define test_ing
+#define test_ing
 #define illegal_address  ENOREG
 #define Function_error ENOFUNC
 
@@ -53,11 +53,13 @@ extern BYTE ModbusTXbuf[26];
 extern BYTE Test_TX[26];
 extern int increment;
 extern int Test_Res;
+extern BYTE_VAL Bit_rev;
 //extern ErrorCode error;
 //extern Modbus parse;
 
 void in_func(Modbus *parse, const BYTE *ModbusRXbuf); // Function declaration
 void Test_ing(const BYTE ModbusTXbuf[], const BYTE Test_TX[]);
+void ReadCoil_Status(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error);
 void ReadHolding_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error);
 void ReadInput_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error);
 void PresetSingle_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error);

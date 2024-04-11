@@ -15,8 +15,8 @@ void PresetSingle_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorC
          error_1(error);
     }
     else{
-    ModbusTXbuf[4] = parse->length.v[1];
-    ModbusTXbuf[5] = parse->length.v[0];
+    ModbusTXbuf[4] = 0x00;
+    ModbusTXbuf[5] = 0x06;
     ModbusTXbuf[6] = parse->unit_identifier;
     ModbusTXbuf[7] = parse->function_code;
     ModbusTXbuf[8] = parse->start_address.v[1];   
