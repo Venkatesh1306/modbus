@@ -8,7 +8,7 @@
 
 #include "head1.h"
 
-void ForceMultiple_Coils(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error) {
+WORD ForceMultiple_Coils(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error) {
     if(parse->start_address.Val > 26){
          ErrorCode error = ENOREG;
          ModbusTXbuf[6] = parse->unit_identifier;
@@ -31,4 +31,5 @@ void ForceMultiple_Coils(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,Err
 //        }
    
     }
+    return 0x09 + ModbusTXbuf[5];
 }

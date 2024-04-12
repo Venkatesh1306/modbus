@@ -7,7 +7,7 @@
 
 #include "head1.h"
 
-void PresetSingle_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error) {
+WORD PresetSingle_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error) {
     if(parse->start_address.Val > 26){
          ErrorCode error = ENOREG;
          ModbusTXbuf[6] = parse->unit_identifier;
@@ -23,6 +23,8 @@ void PresetSingle_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorC
     ModbusTXbuf[9] = parse->start_address.v[0];  
     ModbusTXbuf[10] = parse->address_length.v[1];  
     ModbusTXbuf[11] = parse->address_length.v[0];
+   
     }
+    return 0x09 + ModbusTXbuf[8];
 }
 

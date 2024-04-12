@@ -8,7 +8,7 @@
 
 #include "head1.h"
 
-void PresetMultiple_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error) {
+WORD PresetMultiple_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error) {
     if(parse->start_address.Val > 26){
          ErrorCode error = ENOREG;
          ModbusTXbuf[6] = parse->unit_identifier;
@@ -29,5 +29,7 @@ void PresetMultiple_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,Erro
 //        {
 //           ModbusTXbuf[12+increment] =  parse->force_data[increment].Val;
 //        }
+    //return 0x09 + ModbusTXbuf[8];
     }
+   return 0x09 + ModbusTXbuf[8];
 }

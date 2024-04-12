@@ -7,9 +7,10 @@
 
 #include "head1.h"
 
-void ReadHolding_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error) {
+WORD ReadHolding_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error) {
     if(parse->start_address.Val > 26){
          ErrorCode error = ENOREG;
+         ModbusTXbuf[5] = 0x03;
          ModbusTXbuf[6] = parse->unit_identifier;
          ModbusTXbuf[7] = parse->function_code;
          error_1(error);
@@ -23,8 +24,18 @@ void ReadHolding_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCo
     
     // Generate output data from DataRegister array based on parsed start_address and address_length
     for (increment = 0; increment < parse->address_length.Val; increment++) {
+      if(DataRegister[parse->start_address.Val + increment]<65000){
         ModbusTXbuf[9 + increment * 2] = DataRegister[parse->start_address.Val + increment]/0x100;   // High byte
         ModbusTXbuf[10 + increment * 2] = DataRegister[parse->start_address.Val + increment]%0x100; // Low byte
     }
+    else{
+      ErrorCode error = EILLDATA;
+         ModbusTXbuf[5] = 0x03;
+         ModbusTXbuf[6] = parse->unit_identifier;
+         ModbusTXbuf[7] = parse->function_code;
+      error_1(error);
+    }
+    }
 }
+  return 0x09 + ModbusTXbuf[8];
 }

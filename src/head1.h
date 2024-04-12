@@ -8,6 +8,7 @@
 #define test_ing
 #define illegal_address  ENOREG
 #define Function_error ENOFUNC
+#define Illegal_data_value EILLDATA
 
 #define Read_Coil_Status 0x01
 #define READ_HOLDING_REGISTERS 0x03 
@@ -35,7 +36,8 @@ typedef enum
 {
     NOERR = 0,      /*!< no error. */
     ENOFUNC = 1,    /*<Function error*/
-    ENOREG = 2      /*!< illegal register address. */
+    ENOREG = 2,     /*!< illegal register address. */
+    EILLDATA =3
 //    EINVAL,                  /*!< illegal argument. */
 //    EPORTERR,                /*!< porting layer error. */
 //    ENORES,                  /*!< insufficient resources. */
@@ -57,14 +59,15 @@ extern BYTE_VAL Bit_rev;
 //extern ErrorCode error;
 //extern Modbus parse;
 
-void in_func(Modbus *parse, const BYTE *ModbusRXbuf); // Function declaration
-void Test_ing(const BYTE ModbusTXbuf[], const BYTE Test_TX[]);
-void ReadCoil_Status(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error);
-void ReadHolding_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error);
-void ReadInput_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error);
-void PresetSingle_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error);
-void ForceSingle_Coil(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error);
-void ForceMultiple_Coils(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error);
-void PresetMultiple_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error);
-void error_1(ErrorCode error);
+
+WORD in_func(Modbus *parse, const BYTE *ModbusRXbuf); // Function declaration
+WORD Test_ing(const BYTE ModbusTXbuf[], const BYTE Test_TX[]);
+WORD ReadCoil_Status(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error);
+WORD ReadHolding_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error);
+WORD ReadInput_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error);
+WORD PresetSingle_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error);
+WORD ForceSingle_Coil(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error);
+WORD ForceMultiple_Coils(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error);
+WORD PresetMultiple_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error);
+WORD error_1(ErrorCode error);
 

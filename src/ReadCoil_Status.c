@@ -8,7 +8,7 @@
 
 #include "head1.h"
 
-void ReadCoil_Status(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error){
+WORD ReadCoil_Status(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error){
         if(parse->start_address.Val > 26){
          ErrorCode error = ENOREG;
          ModbusTXbuf[6] = parse->unit_identifier;
@@ -35,6 +35,8 @@ void ReadCoil_Status(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCo
 //            case((parse->address_length.Val % 8 == 1)){
 //                Bit_rev.bits.b0 = 
 //            }
+    
     }   
-
+        
+        return 0x09 + ModbusTXbuf[8];
 }

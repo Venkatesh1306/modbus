@@ -8,7 +8,7 @@
 
 #include "head1.h"
 
-void ReadInput_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error) {
+WORD ReadInput_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error) {
     if(parse->start_address.Val > 26){
          ErrorCode error = ENOREG;
          ModbusTXbuf[6] = parse->unit_identifier;
@@ -27,5 +27,7 @@ void ReadInput_Reg(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode
         ModbusTXbuf[9 + increment * 2] = DataRegister1[parse->start_address.Val + increment]/0x100;   // High byte
         ModbusTXbuf[10 + increment * 2] = DataRegister1[parse->start_address.Val + increment]%0x100; // Low byte
     }
+    
 }
+   return 0x09 + ModbusTXbuf[5];
 }

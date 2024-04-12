@@ -8,7 +8,7 @@
 
 #include "head1.h"
 
-void in_func(Modbus *parse, const BYTE *ModbusRXbuf) {
+WORD in_func(Modbus *parse, const BYTE *ModbusRXbuf) {
     //ErrorCode error;
 
     parse->transaction_identifier.v[1]   = ModbusRXbuf[0];
@@ -37,5 +37,5 @@ void in_func(Modbus *parse, const BYTE *ModbusRXbuf) {
          parse->force_data[increment].Val = ModbusRXbuf[12+increment]; 
       }  
     }
-
+    return 0x09 + ModbusTXbuf[5];
 }

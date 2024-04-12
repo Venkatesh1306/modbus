@@ -8,7 +8,7 @@
 
 #include "head1.h"
 
-void ForceSingle_Coil(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error) {
+WORD ForceSingle_Coil(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorCode error) {
     if(parse->start_address.Val > 26){
          ErrorCode error = ENOREG;
          ModbusTXbuf[6] = parse->unit_identifier;
@@ -25,4 +25,5 @@ void ForceSingle_Coil(WORD *DataRegister,BYTE  *ModbusTXbuf,Modbus *parse,ErrorC
     ModbusTXbuf[10] = parse->address_length.v[1];  
     ModbusTXbuf[11] = parse->address_length.v[0];
     }
+    return 0x09 + ModbusTXbuf[5];
 }
